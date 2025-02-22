@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-
     public GameObject[] normEnemies;
     public GameObject[] eliteEnemies;
     public GameObject jumpEnemy;
@@ -30,7 +29,6 @@ public class EnemyManager : MonoBehaviour
         }
         
     }
-
     void randomMove()
     {
         randomDegree = Random.Range(0,360);
