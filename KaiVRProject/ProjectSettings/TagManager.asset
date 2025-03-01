@@ -8,6 +8,7 @@ TagManager:
   - Tower
   - CanPlace
   - CantPlace
+  - enemy
   layers:
   - Default
   - TransparentFX

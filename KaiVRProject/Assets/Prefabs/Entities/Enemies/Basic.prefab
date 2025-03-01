@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7539825241911225066}
-  - component: {fileID: 7539825241911225067}
+  - component: {fileID: 6863667254024475264}
   m_Layer: 0
   m_Name: Basic
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7539825241911225067
+--- !u!114 &6863667254024475264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,10 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e14e07b999baf04eb26e18fcf74c97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  health: 0
   speed: 4
-  ID: 0
 --- !u!1 &7539825243441260756
 GameObject:
   m_ObjectHideFlags: 0
