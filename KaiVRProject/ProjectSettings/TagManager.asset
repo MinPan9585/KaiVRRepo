@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Tower
   - CanPlace
   - CantPlace
   - enemy
+  - PES
   layers:
   - Default
   - TransparentFX

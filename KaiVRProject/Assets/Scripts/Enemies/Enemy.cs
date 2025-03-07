@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TreeEditor;
+using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,16 +11,23 @@ public class Enemy : MonoBehaviour
     private int currentPath;
     private Transform target;
     private int wavePointIndex = 0;
+    private GameObject waypoints = null;
 
-    //Vector3 spawnThree = new Vector3(11.0f, 0.0f, -16.5f);
-    //Vector3 spawnFour = new Vector3(11.0f, 0.0f, -16.5f);
+    private Vector3 spawn1 = new Vector3(11.2f, 0f, -18f);
+    private Vector3 spawn2 = new Vector3(14.4f, 0f, 15.2f);
 
-    private Waypoints waypoints;
     // Start is called before the first frame update
     void Start()
     {
-
-        target = GameObject.Find("Waypoints").transform.GetComponent<Waypoints>().points[0];
+        if (Vector3.Distance(transform.position, spawn1) < 0.2)
+        {
+            waypoints = GameObject.Find("Waypoints");
+            target = waypoints.transform.GetComponent<Waypoints>().points[0];
+        } else if (Vector3.Distance(transform.position, spawn2) < 0.2)
+        {
+            waypoints = GameObject.Find("Waypoints2");
+            target = waypoints.transform.GetComponent<Waypoints>().points[0];
+        }
     }
 
     // Update is called once per frame
@@ -35,12 +44,12 @@ public class Enemy : MonoBehaviour
 
     void GetNextWaypoint(int Path)
     {
-        if (wavePointIndex >= GameObject.Find("Waypoints").transform.GetComponent<Waypoints>().points.Length)
+        if (wavePointIndex >= waypoints.transform.GetComponent<Waypoints>().points.Length)
         {
             Destroy(gameObject);
             return;
         }
-        target = GameObject.Find("Waypoints").transform.GetComponent<Waypoints>().points[wavePointIndex];
+        target = waypoints.transform.GetComponent<Waypoints>().points[wavePointIndex];
         wavePointIndex++;
     }
 

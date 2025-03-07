@@ -94,10 +94,10 @@ GameObject:
   - component: {fileID: 4110355827056380442}
   - component: {fileID: 5177813643039227270}
   - component: {fileID: 625470174783938591}
-  - component: {fileID: 7110309361746956006}
+  - component: {fileID: 2309501502093665384}
   m_Layer: 0
   m_Name: TestEnemy 1
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ CapsuleCollider:
   m_Height: 0.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.3, z: 0}
---- !u!114 &7110309361746956006
+--- !u!114 &2309501502093665384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4110355827056380443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1aa99a5f182c04283c0e9f5308755f, type: 3}
+  m_Script: {fileID: 11500000, guid: c386a5b85bcca3f4ba1dd683715e99d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towers: []

@@ -9,6 +9,7 @@ public class NodeScript : MonoBehaviour
     private Renderer rend;
 
     private GameObject currentTurret;
+    private Vector3 towerDisplace = new Vector3 (0f, .3f, 0f);
 
     private void Start()
     {
@@ -22,9 +23,9 @@ public class NodeScript : MonoBehaviour
         {
             return;
         }
-
+        Vector3 placePos = transform.position + towerDisplace;
         GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        currentTurret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
+        currentTurret = (GameObject)Instantiate(turretToBuild, placePos, transform.rotation);
     }
 
 

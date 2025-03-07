@@ -23,9 +23,20 @@ public class PeripheralEnemySpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             randomMove();
-            Instantiate(towerEnemies, transform.position, Quaternion.identity);
         }
 
+    }
+
+    public void spawnTowerEnemy()
+    {
+        randomMove();
+        Instantiate(towerEnemies, transform.position, Quaternion.identity);
+    }
+
+    public void spawnPlayerEnemy()
+    {
+        randomMove();
+        //instantiate playerenemy
     }
     void randomMove()
     {
