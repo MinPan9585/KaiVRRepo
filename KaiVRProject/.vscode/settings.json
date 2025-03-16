@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "KaiVRProject.sln"
+    "dotnet.defaultSolution": "KaiVRProject.sln",
+    "cSpell.words": [
+        "Interactable"
+    ]
 }
