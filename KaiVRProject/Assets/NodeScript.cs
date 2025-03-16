@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
-public class NodeScript : XRBaseInteractable
+public class NodeScript : MonoBehaviour
 {
     public Color originalColor;
     public Color hoverColor;
@@ -12,32 +11,13 @@ public class NodeScript : XRBaseInteractable
     private GameObject currentTurret;
     private Vector3 towerDisplace = new Vector3 (0f, .3f, 0f);
 
-    protected override void Awake()
+    private void Start()
     {
-        base.Awake();
         rend = GetComponent<Renderer>();
         originalColor = rend.material.color;
     }
 
-    protected override void OnHoverEntered(HoverEnterEventArgs args)
-    {
-        base.OnHoverEntered(args);
-        rend.material.color = hoverColor;
-    }
-
-    protected override void OnHoverExited(HoverExitEventArgs args)
-    {
-        base.OnHoverExited(args);
-        rend.material.color = originalColor;
-    }
-
-    protected override void OnSelectEntered(SelectEnterEventArgs args)
-    {
-        base.OnSelectEntered(args);
-        HandleNodeClick();
-    }
-
-    private void HandleNodeClick()
+    private void OnMouseDown()
     {
         if (currentTurret != null)
         {
@@ -48,11 +28,6 @@ public class NodeScript : XRBaseInteractable
         currentTurret = (GameObject)Instantiate(turretToBuild, placePos, transform.rotation);
     }
 
-    // 保留鼠标交互用于测试
-    private void OnMouseDown()
-    {
-        HandleNodeClick();
-    }
 
     void OnMouseEnter()
     {
