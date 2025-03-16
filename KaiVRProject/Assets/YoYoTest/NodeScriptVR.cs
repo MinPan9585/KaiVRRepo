@@ -31,9 +31,16 @@ public class NodeScriptVR : XRBaseInteractable
         rend.material.color = originalColor;
     }
 
-    protected override void OnSelectEntered(SelectEnterEventArgs args)
+    // protected override void OnSelectEntered(SelectEnterEventArgs args)
+    // {
+    //     base.OnSelectEntered(args);
+    //     HandleNodeClick();
+    // }
+
+    protected override void OnActivated(ActivateEventArgs args)
     {
-        base.OnSelectEntered(args);
+        Debug.LogError("OnActivated");
+        base.OnActivated(args);
         HandleNodeClick();
     }
 
