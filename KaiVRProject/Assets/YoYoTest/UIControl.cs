@@ -7,6 +7,10 @@ public class UIControl : MonoBehaviour
     public Transform targetUITransform;
     public Transform lookTargetTransform;
     public float lookRotateSpeed = 10f;
+    public Transform moveTargetTransform;
+    public float moveSpeed = 10f;
+    public float moveDistance = 10f;
+    public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,11 @@ public class UIControl : MonoBehaviour
 
             // 平滑旋转到目标方向
             targetUITransform.rotation = Quaternion.Lerp(targetUITransform.rotation, targetRotation, lookRotateSpeed * Time.deltaTime);
+        }
+
+        if (moveTargetTransform != null)
+        {
+            targetUITransform.position = Vector3.Lerp(targetUITransform.position, moveTargetTransform.position + offset, moveSpeed * Time.deltaTime);
         }
     }
 }
