@@ -13,7 +13,7 @@ public class InputTest : MonoBehaviour
     {
         // 获取右手交互动作组中的Activate Value动作
         triggerAction = actionAsset.FindActionMap("XRI RightHand Interaction").FindAction("Activate Value");
-        // 启用动作
+        // 启用动作（其实默认是自动启用的，不写这个也可以）
         triggerAction.Enable();
     }
 
@@ -22,7 +22,11 @@ public class InputTest : MonoBehaviour
     {
         float triggerValue = triggerAction.ReadValue<float>();
         Debug.Log(triggerValue);
-        Debug.Log("hahaha");
+
+
+        //或者直接这么写也行（后面直接加上.ReadValue<float>()，就不用预先定义action了）
+        float triggerValue2 = actionAsset.FindActionMap("XRI RightHand Interaction").FindAction("Activate Value").ReadValue<float>();
+        Debug.Log(triggerValue2);
 
     }
 

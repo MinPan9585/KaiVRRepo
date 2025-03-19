@@ -14913,6 +14913,39 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &712010543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712010538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b8eb124615871468655aac4fd235a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionAsset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+--- !u!114 &712010545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712010538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461fd6b6e959512498283f600a43e5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionAsset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rigT: {fileID: 1185912858}
+  headT: {fileID: 712010546}
+  moveSpeed: 1
+  leftHand: {fileID: 436880930}
+  rightHand: {fileID: 1808624471}
 --- !u!4 &712010546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9014170783809206335, guid: 895f6f3c2d334633b5800312285058d2,
@@ -33765,6 +33798,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4326422857807747808, guid: b0f78ef7ba52d6d4c848298a77c6f38e,
     type: 3}
   m_PrefabInstance: {fileID: 1801686589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1808624471 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9014170783705847996, guid: 895f6f3c2d334633b5800312285058d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 712010537}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1819574834
 PrefabInstance:
