@@ -1687,6 +1687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707864099486318041, guid: 66e7de5b4aeae5a49b994d8916db9255,
         type: 3}
+      propertyPath: trackingSpace
+      value: 
+      objectReference: {fileID: 1185912858}
+    - target: {fileID: 8707864099486318041, guid: 66e7de5b4aeae5a49b994d8916db9255,
+        type: 3}
       propertyPath: lookTargetTransform
       value: 
       objectReference: {fileID: 712010546}
@@ -14826,6 +14831,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9168142743249570444, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168142743249570444, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
       propertyPath: m_EnableFly
       value: 0
       objectReference: {fileID: 0}
@@ -14946,6 +14956,12 @@ MonoBehaviour:
   moveSpeed: 1
   leftHand: {fileID: 436880930}
   rightHand: {fileID: 1808624471}
+  centerPosition: {x: 0, y: 0, z: 0}
+  TrackingSpace: {fileID: 1185912858}
+  recordScale: 0
+  recordDistance: 0
+  useDragScale: 0
+  useDragMove: 0
 --- !u!4 &712010546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9014170783809206335, guid: 895f6f3c2d334633b5800312285058d2,

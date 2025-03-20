@@ -11,6 +11,7 @@ public class UIControl : MonoBehaviour
     public float moveSpeed = 10f;
     public float moveDistance = 10f;
     public Vector3 offset;
+    public Transform trackingSpace;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class UIControl : MonoBehaviour
 
         if (moveTargetTransform != null)
         {
-            targetUITransform.position = Vector3.Lerp(targetUITransform.position, moveTargetTransform.position + offset, moveSpeed * Time.deltaTime);
+            targetUITransform.position = Vector3.Lerp(targetUITransform.position, moveTargetTransform.position + offset*trackingSpace.lossyScale.x, moveSpeed * Time.deltaTime);
         }
     }
 }
