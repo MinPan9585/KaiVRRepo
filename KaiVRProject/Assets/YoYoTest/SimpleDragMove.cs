@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 public class SimpleDragMove : MonoBehaviour
 {
     // private OVRInput.Controller lController = OVRInput.Controller.LTouch;
@@ -31,6 +32,9 @@ public class SimpleDragMove : MonoBehaviour
 
     public bool useDragScale = false;
     public bool useDragMove = false;
+
+    // public XRInteractorLineVisual leftHandLineVisual;
+    public XRInteractorLineVisual rightHandLineVisual;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,10 @@ public class SimpleDragMove : MonoBehaviour
         //左摇杆移动
         StrickMove();
         // //InputTest();
+
+        rightHandLineVisual.lineLength = 0.5f*TrackingSpace.lossyScale.x;
+        rightHandLineVisual.lineWidth = 0.005f*TrackingSpace.lossyScale.x;
+        
     }
 
     private void DragScale()
