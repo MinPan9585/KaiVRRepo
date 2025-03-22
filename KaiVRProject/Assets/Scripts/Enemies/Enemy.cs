@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
     public float speed = 1f;
+    private float originalSpeed; // Store the original speed
     private int currentPath;
     private Transform target;
     private int wavePointIndex = 0;
@@ -16,21 +14,21 @@ public class Enemy : MonoBehaviour
     private Vector3 spawn1 = new Vector3(11.2f, 0f, -18f);
     private Vector3 spawn2 = new Vector3(14.4f, 0f, 15.2f);
 
-    // Start is called before the first frame update
     void Start()
     {
+        originalSpeed = speed; // Initialize original speed
         if (Vector3.Distance(transform.position, spawn1) < 0.2)
         {
             waypoints = GameObject.Find("Waypoints");
             target = waypoints.transform.GetComponent<Waypoints>().points[0];
-        } else if (Vector3.Distance(transform.position, spawn2) < 0.2)
+        }
+        else if (Vector3.Distance(transform.position, spawn2) < 0.2)
         {
             waypoints = GameObject.Find("Waypoints2");
             target = waypoints.transform.GetComponent<Waypoints>().points[0];
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 dir = target.position - transform.position;
@@ -53,6 +51,15 @@ public class Enemy : MonoBehaviour
         wavePointIndex++;
     }
 
+    public void ApplySlow(float slowFactor, float duration)
+    {
+        StartCoroutine(SlowEffect(slowFactor, duration));
+    }
 
-
+    private IEnumerator SlowEffect(float slowFactor, float duration)
+    {
+        speed = originalSpeed * slowFactor; // Reduce speed
+        yield return new WaitForSeconds(duration);
+        speed = originalSpeed; // Restore speed
+    }
 }

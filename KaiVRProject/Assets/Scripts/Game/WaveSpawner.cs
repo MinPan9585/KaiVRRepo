@@ -22,10 +22,11 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 2f;
     private float countdown = 2f;
+    private bool waveDone = true;
 
     public TextMeshProUGUI waveCountdownText;
 
-    private int waveIndex = 0;
+    public static int waveIndex = 0;
 
     // Update is called once per frame
 
@@ -37,11 +38,13 @@ public class WaveSpawner : MonoBehaviour
     {
         if (countdown <= 0f)
         {
+            waveDone = false;
             StartCoroutine(SpawnWave());
-            countdown = Mathf.Floor((float)Math.Log(waveIndex, 2f) + 1);
+            countdown = 2 + 0.5f * waveIndex;
         }
         waveCountdownText.text = (Mathf.Floor(countdown)).ToString();
-        countdown -= Time.deltaTime;
+        if (waveDone == true)
+            countdown -= Time.deltaTime;
     }
 
     IEnumerator SpawnWave()
@@ -53,6 +56,7 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy();
             yield return new WaitForSeconds(0.1f);
         }
+        waveDone = true;
         waveIndex++;
     }
 
@@ -64,7 +68,6 @@ public class WaveSpawner : MonoBehaviour
         if (whichEnemy < 6)
         {
             int spawn = UnityEngine.Random.Range(0, 2);
-            print (spawn);
             if (spawn == 0)
             {
                 Instantiate(enemyPrefab, spawn1.position, spawn1.rotation);

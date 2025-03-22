@@ -77,12 +77,11 @@ public class ArrowTower : MonoBehaviour
 
     void Shoot()
     {
-        GameObject arrowGo = (GameObject)Instantiate (bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject arrowGo = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         ArrowProjectile arrow = arrowGo.GetComponent<ArrowProjectile>();
-
         if (arrow != null)
         {
-            arrow.Seek(target);
+            arrow.Seek(target); // Ensure target has EnemyHealth
         }
     }
 

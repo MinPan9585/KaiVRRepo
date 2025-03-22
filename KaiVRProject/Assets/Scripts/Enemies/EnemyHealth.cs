@@ -4,13 +4,20 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public Image healthBar;
-    public float health = 100f;
+    public float maxHealth;
+    private float currentHealth;
+
+    private void Awake()
+    {
+        maxHealth = 90 * (Mathf.Pow(1.03f, WaveSpawner.waveIndex));
+        currentHealth = maxHealth;
+    }
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        healthBar.fillAmount = health / 100f;
-        if (health <= 0)
+        currentHealth -= damage;
+        healthBar.fillAmount = currentHealth / maxHealth;
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }

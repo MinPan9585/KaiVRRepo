@@ -96,3 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc4b70948935434d8cd2cefa8431520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionRadius: 3
+  maxDamage: 50
+  enemyTag: enemy
+  explosionEffectPrefab: {fileID: 6156934154063743575, guid: 8e6365408d2c4be4f9ec616ee7df1a2d,
+    type: 3}
+  slowFactor: 0.8
+  slowDuration: 1
+  radiusVisualizerPrefab: {fileID: 0}
+  visualDuration: 0.5

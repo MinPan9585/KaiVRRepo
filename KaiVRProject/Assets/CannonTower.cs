@@ -9,7 +9,7 @@ public class CannonTower : MonoBehaviour
     [Header("Attributes")]
     public float range = 0f;
     public float fireRate = 1f;
-    public float baseSpeed = 5f; // Base speed for closest range
+    public float baseSpeed = 30f; // Increased from 5f to 10f (doubled)
     private float fireCountdown = 0f;
 
     [Header("Unity Setup")]
@@ -54,9 +54,8 @@ public class CannonTower : MonoBehaviour
     {
         if (target == null) { return; }
 
-        // Only rotate in Y-axis
         Vector3 dir = target.position - transform.position;
-        dir.y = 0; // Keep rotation horizontal
+        dir.y = 0;
         Quaternion lookAt = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(topRotate.rotation, lookAt, Time.deltaTime * turnSpeed).eulerAngles;
         topRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
@@ -78,7 +77,7 @@ public class CannonTower : MonoBehaviour
         if (cannonball != null)
         {
             float distance = Vector3.Distance(firePoint.position, target.position);
-            float adjustedSpeed = baseSpeed * (distance / range) * 2f;
+            float adjustedSpeed = baseSpeed * (distance / range) * 1f; // Increased multiplier from 2f to 4f
             cannonball.SetSpeed(adjustedSpeed);
             cannonball.Seek(target);
         }

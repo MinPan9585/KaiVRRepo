@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class TowerEnemies : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject[] towers;
     Vector3 direction;
     public float speed = 0.1f;
+    private float originalSpeed; // Store the original speed
 
-    // Update is called once per frame
+    void Start()
+    {
+        originalSpeed = speed; // Initialize original speed
+    }
+
     void Update()
     {
         LookAt();
@@ -49,4 +53,15 @@ public class TowerEnemies : MonoBehaviour
         return closestXY;
     }
 
+    public void ApplySlow(float slowFactor, float duration)
+    {
+        StartCoroutine(SlowEffect(slowFactor, duration));
+    }
+
+    private IEnumerator SlowEffect(float slowFactor, float duration)
+    {
+        speed = originalSpeed * slowFactor; // Reduce speed
+        yield return new WaitForSeconds(duration);
+        speed = originalSpeed; // Restore speed
+    }
 }
