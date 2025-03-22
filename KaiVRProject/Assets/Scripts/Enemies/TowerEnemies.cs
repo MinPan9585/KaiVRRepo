@@ -28,7 +28,7 @@ public class TowerEnemies : MonoBehaviour
         transform.rotation = rotation;
     }
 
-    Vector3 FindClosestTower()
+    public Vector3 FindClosestTower()
     {
         Vector3 closestXY = Vector3.zero;
         float distance = 0;
@@ -48,4 +48,5 @@ public class TowerEnemies : MonoBehaviour
 
         return closestXY;
     }
+
 }

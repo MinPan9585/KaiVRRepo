@@ -3,45 +3,80 @@ using UnityEngine;
 
 public class ArrowProjectile : MonoBehaviour
 {
-    private Transform target;
-
+    private Transform initialTarget; // Renamed to clarify it’s the initial target
     public float speed = 50f;
     public GameObject impactEffect;
-    public void Seek (Transform _target)
-    {
-        target = _target;
+    private float damage = 60f;
+    private bool hasHit = false;
 
+    public void Seek(Transform _target)
+    {
+        initialTarget = _target;
+        // Set initial direction even if target dies
+        if (initialTarget != null)
+        {
+            Vector3 dir = (initialTarget.position - transform.position).normalized;
+            transform.rotation = Quaternion.LookRotation(dir);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (target == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (hasHit) return;
 
-        Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
+        Vector3 dir = transform.forward; // Continue in current direction
 
-        if (dir.magnitude <= distanceThisFrame)
+        // Move forward
+        transform.Translate(dir * distanceThisFrame, Space.World);
+
+        // Check if we hit the ground (assuming ground is at y = 0)
+        if (transform.position.y <= 0f)
         {
-            HitTarget();
+            HitGround();
             return;
         }
-
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-
-
     }
 
-    void HitTarget()
+    private void OnCollisionEnter(Collision collision)
     {
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
-        Destroy(target.gameObject);
-        Destroy(gameObject);
+        if (!hasHit && collision.gameObject.CompareTag("enemy"))
+        {
+            HitTarget(collision.gameObject);
+        }
+    }
 
+    void HitTarget(GameObject hitObject)
+    {
+        if (hasHit) return;
+        hasHit = true;
+
+        if (impactEffect != null)
+        {
+            GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(effectIns, 2f);
+        }
+
+        EnemyHealth enemyHealth = hitObject.GetComponent<EnemyHealth>();
+        if (enemyHealth != null)
+        {
+            enemyHealth.TakeDamage(damage);
+        }
+
+        Destroy(gameObject);
+    }
+
+    void HitGround()
+    {
+        if (hasHit) return;
+        hasHit = true;
+
+        if (impactEffect != null)
+        {
+            GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(effectIns, 2f);
+        }
+
+        Destroy(gameObject);
     }
 }
