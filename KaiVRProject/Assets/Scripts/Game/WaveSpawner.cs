@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
 using TMPro;
-using UnityEngine.UIElements;
-using System;
+using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
     public float challengeLevel = 1.1f;
     public static int enemiesAlive = 0;
-    
-    public Transform enemyPrefab;
 
+    public Transform enemyPrefab;
     public Transform spawn1;
     public Transform spawn2;
+    public Transform spawn3;
+    public Transform spawn4;
+    public Transform spawn5;
 
     PeripheralEnemySpawner pes;
-
-    //private int[] waveSpawns = {3, 5, 8, 12, 17, 23, 30, 60};
 
     public float timeBetweenWaves = 2f;
     private float countdown = 2f;
@@ -28,34 +24,41 @@ public class WaveSpawner : MonoBehaviour
 
     public static int waveIndex = 0;
 
-    // Update is called once per frame
-
     private void Start()
     {
-        pes=GameObject.FindGameObjectWithTag("PES").GetComponent<PeripheralEnemySpawner>();
+        pes = GameObject.FindGameObjectWithTag("PES").GetComponent<PeripheralEnemySpawner>();
+        enemiesAlive = 0;
     }
+
     void Update()
     {
-        if (countdown <= 0f)
+        if (waveDone && enemiesAlive == 0)
         {
-            waveDone = false;
-            StartCoroutine(SpawnWave());
-            countdown = 2 + 0.5f * waveIndex;
-        }
-        waveCountdownText.text = (Mathf.Floor(countdown)).ToString();
-        if (waveDone == true)
+            if (countdown <= 0f)
+            {
+                waveDone = false;
+                StartCoroutine(SpawnWave());
+                countdown = timeBetweenWaves + 0.5f * waveIndex;
+            }
             countdown -= Time.deltaTime;
+            waveCountdownText.text = Mathf.Floor(Mathf.Max(countdown, 0)).ToString();
+        }
+        else
+        {
+            waveCountdownText.text = "Wave " + waveIndex;
+        }
+        print(enemiesAlive);
     }
 
     IEnumerator SpawnWave()
     {
-        Debug.Log("Wave Coming" + waveIndex);
-
-        for (int i = 0; i < (Mathf.Pow(waveIndex, 1.1f)); i++)
+        int enemyCount = (int)(3 + Mathf.Pow(waveIndex, 1.3f));
+        for (int i = 0; i < enemyCount; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(0.1f);
         }
+        
         waveDone = true;
         waveIndex++;
     }
@@ -64,10 +67,10 @@ public class WaveSpawner : MonoBehaviour
     {
         enemiesAlive++;
 
-        int whichEnemy = UnityEngine.Random.Range(0, 10);
+        int whichEnemy = Random.Range(6, 8);
         if (whichEnemy < 6)
         {
-            int spawn = UnityEngine.Random.Range(0, 2);
+            int spawn = Random.Range(0, 1);
             if (spawn == 0)
             {
                 Instantiate(enemyPrefab, spawn1.position, spawn1.rotation);
@@ -76,10 +79,22 @@ public class WaveSpawner : MonoBehaviour
             {
                 Instantiate(enemyPrefab, spawn2.position, spawn2.rotation);
             }
+            else if (spawn == 2)
+            {
+                Instantiate(enemyPrefab, spawn3.position, spawn3.rotation);
+            }
+            else if (spawn == 3)
+            {
+                Instantiate(enemyPrefab, spawn4.position, spawn4.rotation);
+            }
+            else if (spawn == 4)
+            {
+                Instantiate(enemyPrefab, spawn5.position, spawn5.rotation);
+            }
         }
         else if (whichEnemy > 8)
         {
-            //spawn PLAYERENEMY
+            pes.spawnPlayerEnemy();
         }
         else
         {

@@ -9,6 +9,8 @@ TagManager:
   - CantPlace
   - enemy
   - PES
+  - Castle
+  - deadTower
   layers:
   - Default
   - TransparentFX

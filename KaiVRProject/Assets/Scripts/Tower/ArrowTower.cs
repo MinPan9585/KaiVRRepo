@@ -54,7 +54,6 @@ public class ArrowTower : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         if (target == null) { return; }
@@ -81,7 +80,7 @@ public class ArrowTower : MonoBehaviour
         ArrowProjectile arrow = arrowGo.GetComponent<ArrowProjectile>();
         if (arrow != null)
         {
-            arrow.Seek(target); // Ensure target has EnemyHealth
+            arrow.Seek(target); 
         }
     }
 

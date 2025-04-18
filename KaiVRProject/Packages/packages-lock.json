@@ -204,7 +204,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:C:/Users/LOLKA/Downloads/PICO Unity Integration SDK-3.0.5-20241105",
+      "version": "file:../PICO Unity Integration SDK-3.0.5-20241105",
       "depth": 0,
       "source": "local",
       "dependencies": {
