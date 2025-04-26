@@ -10,9 +10,9 @@ public class CoinManager : MonoBehaviour
     public TextMeshProUGUI coinText;
 
     [Header("Tower Costs")]
-    public int arrowTowerCost = 5;
-    public int cannonTowerCost = 10;
-    public int teslaCoilCost = 20;
+    public int arrowTowerCost;
+    public int cannonTowerCost;
+    public int teslaCoilCost;
 
     void Awake()
     {

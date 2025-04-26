@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: []
-  speed: 0.01
+  speed: 0.03
 --- !u!114 &4292559933530600281
 MonoBehaviour:
   m_ObjectHideFlags: 0

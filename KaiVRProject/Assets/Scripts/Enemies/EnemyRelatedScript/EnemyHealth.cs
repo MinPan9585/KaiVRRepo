@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public Image healthBar;
-    public float health = 100f;
-    public int coinReward = 2;
+    public float health = 100f * Mathf.Pow(WaveSpawner.challengeLevel, WaveSpawner.waveIndex);
+    public int coinReward = 1;
     bool alive = true;
     bool killedByPlayer = false;
 
@@ -22,13 +22,13 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update()
     {
+        
         if (alive == false)
         {
-            
             WaveSpawner.enemiesAlive--;
             if (killedByPlayer)
             {
-                CoinManager.Instance.addCoins(3);
+                CoinManager.Instance.addCoins(coinReward);
             }
             Destroy(gameObject);
             alive = true;

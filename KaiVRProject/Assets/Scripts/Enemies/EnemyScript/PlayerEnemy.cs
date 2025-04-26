@@ -30,6 +30,7 @@ public class PlayerEnemy : MonoBehaviour
 
     void Update()
     {
+        walkSpeed = (2f + (0.2f * WaveSpawner.waveIndex));
         if (isWalking)
         {
             WalkTowardsTarget();

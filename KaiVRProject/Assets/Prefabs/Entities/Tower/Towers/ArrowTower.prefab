@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 5247290053943807240}
-  maxHealth: 3
+  maxHealth: 2
   health: 0
   destroyed: {fileID: 0}
   normal:

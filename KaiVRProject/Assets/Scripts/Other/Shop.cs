@@ -1,13 +1,13 @@
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
+//using UnityEngine.InputSystem.iOS;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
     BuildManager buildManager;
-    public Button arrowTowerButton;
-    public Button cannonTowerButton;
-    public Button teslaCoilButton;
+    public Toggle arrowTowerButton;
+    public Toggle cannonTowerButton;
+    public Toggle teslaCoilButton;
     private int coins = 0;
 
     private void Start()

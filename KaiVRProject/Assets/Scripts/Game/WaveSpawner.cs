@@ -4,7 +4,7 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public float challengeLevel = 1.1f;
+    public static float challengeLevel = 1.05f;
     public static int enemiesAlive = 0;
 
     public Transform enemyPrefab;
@@ -67,10 +67,10 @@ public class WaveSpawner : MonoBehaviour
     {
         enemiesAlive++;
 
-        int whichEnemy = Random.Range(6, 8);
+        int whichEnemy = Random.Range(0, 10);
         if (whichEnemy < 6)
         {
-            int spawn = Random.Range(0, 1);
+            int spawn = Random.Range(0, 5);
             if (spawn == 0)
             {
                 Instantiate(enemyPrefab, spawn1.position, spawn1.rotation);

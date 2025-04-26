@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        speed = (1f + (0.1f * WaveSpawner.waveIndex));
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 

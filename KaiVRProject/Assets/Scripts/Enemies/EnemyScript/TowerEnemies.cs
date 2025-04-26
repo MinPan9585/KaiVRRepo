@@ -1,4 +1,4 @@
-using UnityEditor.UI;
+//using UnityEditor.UI;
 using UnityEngine;
 
 public class TowerEnemies : MonoBehaviour
@@ -17,6 +17,8 @@ public class TowerEnemies : MonoBehaviour
 
     void Update()
     {
+        speed = (0.1f + (0.002f * WaveSpawner.waveIndex));
+
         LookAt();
         MoveTowardTarget();
 

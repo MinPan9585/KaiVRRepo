@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e14e07b999baf04eb26e18fcf74c97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 2
 --- !u!136 &3675099394319590636
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1399222356}
   health: 100
-  coinReward: 2
+  coinReward: 1
 --- !u!1 &7539825243441260756
 GameObject:
   m_ObjectHideFlags: 0
