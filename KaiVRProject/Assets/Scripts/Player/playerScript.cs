@@ -20,9 +20,9 @@ public class playerScript : MonoBehaviour
         healthBarImage.fillAmount = fillAmount;
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("enemy"))
         {
             playerHealth -= 5;
         }

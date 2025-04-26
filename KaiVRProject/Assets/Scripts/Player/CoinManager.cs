@@ -5,14 +5,11 @@ using UnityEngine.UI;
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager Instance { get; private set; }
-    public int coins = 10;
+    public int coins;
     public static int currentTowerCost = 0;
     public TextMeshProUGUI coinText;
 
-    [Header("Tower Costs")]
-    public int arrowTowerCost;
-    public int cannonTowerCost;
-    public int teslaCoilCost;
+    
 
     void Awake()
     {

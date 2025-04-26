@@ -9939,7 +9939,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370866451}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -9960,6 +9960,9 @@ MonoBehaviour:
   arrowTowerButton: {fileID: 248718006}
   cannonTowerButton: {fileID: 258215395}
   teslaCoilButton: {fileID: 900321755}
+  arrowTowerCost: 5
+  cannonTowerCost: 15
+  teslaCoilCost: 30
 --- !u!114 &370866454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9967,7 +9970,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370866451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8b8eb124615871468655aac4fd235a8, type: 3}
   m_Name: 
@@ -9982,7 +9985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370866451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.4, z: 0}
+  m_LocalPosition: {x: 0, y: 4.213, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11011,7 +11014,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420525506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
   m_Name: 
@@ -16571,7 +16574,7 @@ MonoBehaviour:
   m_MoveSpeed: 2
   m_EnableStrafe: 1
   m_EnableFly: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_GravityApplicationMode: 0
   m_ForwardSource: {fileID: 1145344852}
   m_LeftHandMoveAction:
@@ -33032,20 +33035,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 520791653}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1316594039
-CapsuleCollider:
+--- !u!65 &1316594042
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663990300}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0075
-  m_Height: 0.03
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -0.004}
+  serializedVersion: 2
+  m_Size: {x: 0.015000008, y: 0.015, z: 0.019010335}
+  m_Center: {x: 0, y: -4.9430196e-18, z: -0.0019948035}
 --- !u!1001 &1316758597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36495,9 +36497,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 15
   coinText: {fileID: 634547482}
-  arrowTowerCost: 5
-  cannonTowerCost: 15
-  teslaCoilCost: 30
 --- !u!114 &1463499112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46415,7 +46414,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cannon Tower 25
+  m_Text: Cannon Tower 15
 --- !u!222 &1979529586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50907,6 +50906,9 @@ MonoBehaviour:
   arrowTowerButton: {fileID: 0}
   cannonTowerButton: {fileID: 0}
   teslaCoilButton: {fileID: 0}
+  arrowTowerCost: 0
+  cannonTowerCost: 0
+  teslaCoilCost: 0
 --- !u!4 &3440470144885103898
 Transform:
   m_ObjectHideFlags: 0

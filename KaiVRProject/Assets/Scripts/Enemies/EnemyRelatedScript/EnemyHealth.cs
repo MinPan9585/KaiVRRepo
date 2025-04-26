@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Castle") )
         {
             alive = false;
         }
@@ -45,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Castle") || other.gameObject.CompareTag("Tower"))
+        if (other.gameObject.CompareTag("Tower")|| other.gameObject.CompareTag("Player"))
         {
             alive = false;
         }

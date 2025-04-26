@@ -5,7 +5,7 @@ public class TowerEnemies : MonoBehaviour
 {
     public GameObject[] towers;
     Vector3 direction;
-    public float speed = 0.1f;
+    private float speed;
     private float originalSpeed;
 
     private bool destroyed = false;
@@ -17,7 +17,7 @@ public class TowerEnemies : MonoBehaviour
 
     void Update()
     {
-        speed = (0.1f + (0.002f * WaveSpawner.waveIndex));
+        speed = (0.05f + (0.002f * WaveSpawner.waveIndex));
 
         LookAt();
         MoveTowardTarget();

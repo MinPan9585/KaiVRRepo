@@ -8,6 +8,11 @@ public class Shop : MonoBehaviour
     public Toggle arrowTowerButton;
     public Toggle cannonTowerButton;
     public Toggle teslaCoilButton;
+
+    [Header("Tower Costs")]
+    public int arrowTowerCost;
+    public int cannonTowerCost;
+    public int teslaCoilCost;
     private int coins = 0;
 
     private void Start()
@@ -19,7 +24,7 @@ public class Shop : MonoBehaviour
     {
         coins = CoinManager.Instance.getCoinBalance();
         
-        if (coins < 5)
+        if (coins < arrowTowerCost)
         {
             arrowTowerButton.interactable = false;
         } 
@@ -28,7 +33,7 @@ public class Shop : MonoBehaviour
             arrowTowerButton.interactable = true;
         }
         
-        if (coins < 10)
+        if (coins < cannonTowerCost)
         {
             cannonTowerButton.interactable = false;
         }
@@ -37,7 +42,7 @@ public class Shop : MonoBehaviour
             cannonTowerButton.interactable = true;
         }
         
-        if (coins < 20)
+        if (coins < teslaCoilCost)
         {
             teslaCoilButton.interactable = false;
         } 
@@ -52,7 +57,7 @@ public class Shop : MonoBehaviour
         
         Debug.Log("Arrow Selected");
         buildManager.SetTowerToBuild(buildManager.arrowTowerPrefab);
-        CoinManager.Instance.setCurrentTowerCost(5);
+        CoinManager.Instance.setCurrentTowerCost(arrowTowerCost);
         
     }
 
@@ -61,7 +66,7 @@ public class Shop : MonoBehaviour
         
         Debug.Log("Cannon Selected");
         buildManager.SetTowerToBuild(buildManager.cannonTowerPrefab);
-        CoinManager.Instance.setCurrentTowerCost(10);
+        CoinManager.Instance.setCurrentTowerCost(cannonTowerCost);
         
     }
 
@@ -69,7 +74,7 @@ public class Shop : MonoBehaviour
     {
         Debug.Log("Cannon Selected");
         buildManager.SetTowerToBuild(buildManager.teslaCoilPrefab);
-        CoinManager.Instance.setCurrentTowerCost(20);
+        CoinManager.Instance.setCurrentTowerCost(teslaCoilCost);
         
     }
 }
