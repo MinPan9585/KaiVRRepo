@@ -54,8 +54,14 @@ public class NodeScriptVR : XRBaseInteractable
             return;
         if (buildManager.GetTurretToBuild() == null)
             return;
-        if (currentTurret != null)
+        if (currentTurret != null && currentTurret.GetComponent<TowerHealth>().health > 0f)
+        {
             return;
+        }
+        else if (currentTurret != null && currentTurret.GetComponent<TowerHealth>().health <= 0f && CoinManager.Instance.getCurrentTowerCost() <= CoinManager.Instance.coins)
+        {
+            Destroy(currentTurret);
+        }
         if (CoinManager.Instance.getCurrentTowerCost() > CoinManager.Instance.coins)
             return;
 
@@ -65,18 +71,5 @@ public class NodeScriptVR : XRBaseInteractable
         GameObject turretToBuild = buildManager.GetTurretToBuild();
         currentTurret = (GameObject)Instantiate(turretToBuild, placePos, transform.rotation);
         CoinManager.Instance.buyTower();
-    }
-
-    private void HandleNodeClick()
-    {
-        if (currentTurret != null)
-        {
-            return;
-        }
-        Vector3 placePos = transform.position + towerDisplace;
-        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        currentTurret = (GameObject)Instantiate(turretToBuild, placePos, transform.rotation);
-
-
     }
 }

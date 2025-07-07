@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8269836742620623591}
   - component: {fileID: 2686467226785495079}
   - component: {fileID: 2492561097095702349}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3690550391845508876}
   - component: {fileID: 3690550391845508877}
   - component: {fileID: 119860076008301030}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 185649312532330219}
   - component: {fileID: 3580271937617372589}
   - component: {fileID: 5613412359291267953}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 3690550392923114109}
   - component: {fileID: 3690550392923114110}
   - component: {fileID: 3690550392923114111}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 974009500123400012}
   - component: {fileID: 9153024667093023334}
   - component: {fileID: 6052567448075288252}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 1221137331777585693}
   - component: {fileID: 7112860264693706029}
   - component: {fileID: 5717606812985140089}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8717225518039163923}
   - component: {fileID: 3419830163349106387}
   - component: {fileID: 2930376347358933433}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4110355826121671160}
   - component: {fileID: 4110355826121671161}
   - component: {fileID: 834369643612747538}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 625470174783938591}
   - component: {fileID: 2309501502093665384}
   - component: {fileID: 4292559933530600281}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TowerEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -255,7 +255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: []
-  speed: 0.03
 --- !u!114 &4292559933530600281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +281,7 @@ GameObject:
   - component: {fileID: 4110355827188931721}
   - component: {fileID: 4110355827188931722}
   - component: {fileID: 4110355827188931723}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +364,7 @@ GameObject:
   - component: {fileID: 556742820940468664}
   - component: {fileID: 8447488114978876562}
   - component: {fileID: 6467900073678170184}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +443,7 @@ GameObject:
   - component: {fileID: 1931986178580649193}
   - component: {fileID: 7532382965752331225}
   - component: {fileID: 5000288362452809101}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

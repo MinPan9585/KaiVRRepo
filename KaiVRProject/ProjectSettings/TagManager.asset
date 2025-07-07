@@ -11,6 +11,7 @@ TagManager:
   - PES
   - Castle
   - deadTower
+  - ExplodingSphere
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Sphere
+  - Enemy
+  - Floor
   - 
   - 
   - 

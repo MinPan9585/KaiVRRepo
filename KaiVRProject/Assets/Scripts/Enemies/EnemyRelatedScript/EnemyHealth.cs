@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     bool alive = true;
     bool killedByPlayer = false;
 
+    public static int enemiesKilled = 0;
+
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -29,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
             if (killedByPlayer)
             {
                 CoinManager.Instance.addCoins(coinReward);
+                enemiesKilled++;
             }
             Destroy(gameObject);
             alive = true;
