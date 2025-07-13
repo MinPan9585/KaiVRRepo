@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Screens/Start Screen.unity
     guid: 9df549c7062b8c0409c095f6614455ac
   - enabled: 1
-    path: Assets/Scenes/VRTest1.unity
+    path: Assets/Scenes/FinalVR.unity
     guid: 5620e688d649f114a909400e18ecad19
+  - enabled: 0
+    path: Assets/Scenes/VRTest.unity
+    guid: 91eb0a8dadd464b4d91b707b0e10d48e
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 491749c654c97524f890706efc860b1c,
       type: 2}

@@ -3,38 +3,40 @@ using UnityEngine;
 public class Swatter : MonoBehaviour
 {
     public float knockbackForce = 10f;
+    public float upwardForce = 4f;
 
-    private Rigidbody playerRigidbody;
+    private Vector3 lastPosition;
+    private Vector3 velocity;
 
-    private void Awake()
+    void Update()
     {
-        // Optional: if you want to add player velocity to knockback
-        playerRigidbody = transform.root.GetComponent<Rigidbody>();
+        velocity = (transform.position - lastPosition) / Time.deltaTime;
+        lastPosition = transform.position;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("enemy")) // Make sure your PlayerEnemy has tag "Enemy"
+        if (collision.gameObject.CompareTag("enemy"))
         {
-            Rigidbody enemyRb = other.attachedRigidbody;
+            Rigidbody enemyRb = collision.rigidbody;
             if (enemyRb != null)
             {
-                Vector3 knockDirection = GetKnockbackDirection();
+                // Wake up physics
                 enemyRb.isKinematic = false;
                 enemyRb.useGravity = true;
 
-                // Apply force for knockback, including some upward force
-                Vector3 force = knockDirection * knockbackForce + Vector3.up * (knockbackForce * 0.5f);
+                // Use hand velocity to create realistic swat force
+                Vector3 knockDirection = velocity.normalized;
+                Vector3 force = knockDirection * knockbackForce + Vector3.up * upwardForce;
                 enemyRb.AddForce(force, ForceMode.Impulse);
 
-                // Optional: You can call enemy-specific logic here to mark as swatted, etc.
+                // Tell enemy to start delayed death
+                PlayerEnemy enemy = collision.gameObject.GetComponent<PlayerEnemy>();
+                if (enemy != null)
+                {
+                    enemy.OnSwatted();
+                }
             }
         }
-    }
-
-    private Vector3 GetKnockbackDirection()
-    {
-        // Use the swatter¡¯s forward direction as knockback direction
-        return transform.forward.normalized;
     }
 }

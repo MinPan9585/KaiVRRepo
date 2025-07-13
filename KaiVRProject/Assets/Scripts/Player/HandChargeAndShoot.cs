@@ -32,7 +32,7 @@ public class HandChargeAndShoot : MonoBehaviour
             }
             else
             {
-                if (chargeTimer >= 0.2f)
+                if (chargeTimer >= 0.0f)
                     Shoot();
                 else
                     Cancel();

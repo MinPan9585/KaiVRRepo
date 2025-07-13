@@ -1,17 +1,19 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerEnemy : MonoBehaviour
 {
-    public GameObject Player; 
-    private Vector3 targetPosition; 
-    private bool isWalking = true; 
+    public GameObject Player;
+    private Vector3 targetPosition;
+    private bool isWalking = true;
     private float walkSpeed = 2f;
-    private float walkDistance; 
-    private float distanceWalked = 0f; 
-    private Vector3 launchVelocity; 
+    private float walkDistance;
+    private float distanceWalked = 0f;
+    private Vector3 launchVelocity;
     private bool hasLaunched = false;
 
     private bool destroyed = false;
+    private bool swatted = false;
 
     void Awake()
     {
@@ -78,13 +80,13 @@ public class PlayerEnemy : MonoBehaviour
 
         Vector3 toPlayer = Player.transform.position - transform.position;
         float horizontalDistance = new Vector3(toPlayer.x, 0, toPlayer.z).magnitude;
-        float verticalDistance = Player.transform.position.y - transform.position.y; 
+        float verticalDistance = Player.transform.position.y - transform.position.y;
 
         float peakHeight = Player.transform.position.y + 5f - transform.position.y;
         float gravity = Physics.gravity.magnitude; // 9.81
 
         float timeToPeak = Mathf.Sqrt(2 * peakHeight / gravity);
-        float fallDistance = peakHeight - verticalDistance; 
+        float fallDistance = peakHeight - verticalDistance;
         float timeToFall = Mathf.Sqrt(2 * fallDistance / gravity);
         float totalTime = timeToPeak + timeToFall;
 
@@ -97,5 +99,22 @@ public class PlayerEnemy : MonoBehaviour
         rb.velocity = launchVelocity;
     }
 
+    public void OnSwatted()
+    {
+        if (!swatted)
+        {
+            swatted = true;
+            StartCoroutine(DelayedSwatDeath(3f));
+        }
+    }
+    private IEnumerator DelayedSwatDeath(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
+        EnemyHealth health = GetComponent<EnemyHealth>();
+        if (health != null)
+        {
+            health.TakeDamage(3000f);
+        }
+    }
 }

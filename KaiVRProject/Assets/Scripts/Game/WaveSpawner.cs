@@ -67,7 +67,7 @@ public class WaveSpawner : MonoBehaviour
     {
         enemiesAlive++;
 
-        int whichEnemy = Random.Range(0, 10);
+        int whichEnemy = Random.Range(8, 10);
         if (whichEnemy < 6)
         {
             int spawn = Random.Range(0, 5);
